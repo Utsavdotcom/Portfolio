@@ -21,28 +21,28 @@ body {
 
 @font-face {
     font-family: 'Notably Absent DEMO';
-    src: url('/fonts/Notably Absent DEMO.ttf') format('truetype');
+    src: url('fonts/Notably Absent DEMO.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'chubbyboys';
-    src: url('/fonts/chubbyboys.otf') format('opentype'); /* Adjust the path as per your actual folder structure */
+    src: url('fonts/chubbyboys.otf') format('opentype'); /* Adjust the path as per your actual folder structure */
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Akira Expanded Demo';
-    src: url('/fonts/Akira%20Expanded%20Demo.otf') format('opentype');
+    src: url('fonts/Akira%20Expanded%20Demo.otf') format('opentype');
     font-weight: bold;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'UNDERRATED UltraBold';
-    src: url('/fonts/UNDERRATED.otf') format('opentype');
+    src: url('fonts/UNDERRATED.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
