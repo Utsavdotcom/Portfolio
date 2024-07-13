@@ -1,0 +1,170 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Yeseva One', sans-serif; /* Default font */
+}
+
+@font-face {
+  font-family: 'chubbyboys';
+  src: url('/fonts/chubbyboys.otf') format('opentype'); /* Adjust the path as per your actual folder structure */
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Akira Expanded Demo';
+  src: url('/fonts/Akira%20Expanded%20Demo.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'UNDERRATED UltraBold';
+  src: url('/fonts/UNDERRATED-UltraBold%20Personal%20Use.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+.hero {
+  /* Main hero section */
+  position: relative;
+  height: 100vh;
+  background-color: #253439; /* Dark shade of grey */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  overflow: hidden; /* Ensure content stays within bounds */
+  border: 2px solid red; /* Debugging border */
+}
+
+.container {
+  /* Container for text and image */
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border: 2px solid blue; /* Debugging border */
+}
+
+.text-container {
+  /* Container for text content */
+  z-index: 1;
+  width: 60%;
+  max-width: 100%;
+  padding-right: 5%;
+  border: 2px solid green; /* Debugging border */
+}
+
+.line-writing-code, 
+.line-cleaner, 
+.line-than-my-room {
+  /* Line container for each piece of text */
+  margin: -20px;
+  position: relative;
+  top: -100px;
+  border: 2px solid magenta; /* Debugging border */
+}
+
+.text-container h2, 
+.text-container p {
+  /* General text styling */
+  margin: 0;
+}
+
+.line-writing-code h2,
+.line-than-my-room h2 {
+  /* Headline text */
+  font-family: 'Yeseva One', sans-serif;
+  font-size: 3rem;
+  letter-spacing: 5px;
+  line-height: 1.2;
+  border: 2px solid yellow; /* Debugging border */
+}
+
+.line-than-my-room {
+  text-align: right;
+  margin-right: -5%;
+}
+
+.line-cleaner {
+  margin-right: 25%;
+  text-align: right;
+}
+
+.line-cleaner .cleaner {
+  /* Highlighted "Cleaner" text */
+  font-family: 'chubbyboys', sans-serif;
+  letter-spacing: 5px;
+  font-size: 5rem;
+  line-height: 1.2;
+  color: #E74C3C; /* Red color for highlight */
+  border: 2px solid rgb(146, 146, 124); /* Debugging border */
+}
+
+.line-i-am p, .line-name, .line-subtitle {
+  /* Paragraph text */
+  font-size: 1.5rem;
+  border: 2px solid purple; /* Debugging border */
+  position: absolute;
+  bottom: 10px; /* Adjust as needed */
+  left: 5%; /* Adjust as needed */
+  width: 100%; /* Adjust width as needed */
+  padding: 10px; /* Adjust padding as needed */
+}
+
+.line-i-am p {
+  bottom: 23%;
+}
+
+.line-name {
+  bottom: 10%;
+  z-index: 0;
+}
+
+.line-name .name {
+  /* Name text */
+  font-family: 'Akira Expanded Demo', sans-serif;
+  letter-spacing: 15px;
+  font-size: 110px;
+  width:100%;
+  position: relative;
+  bottom: 10%;
+  border: 2px solid orange; /* Debugging border */
+}
+
+.line-subtitle {
+  margin-left: -10%;
+  text-align: center;
+  bottom: 9%;
+}
+
+.line-subtitle .subtitle {
+  /* Subtitle text */
+  color: #F1C40F; /* Yellow color for subtitle */
+  font-family: 'UNDERRATED UltraBold', sans-serif;
+  letter-spacing: 5px;
+  font-size: 1.5rem;
+  border: 2px solid pink; /* Debugging border */
+}
+
+.hero-image {
+  /* Container for hero image */
+  position: absolute;
+  bottom: -14%;
+  right: 5%;
+  width: 50%;
+  z-index: 1; /* Place the image behind the text */
+  border: 2px solid cyan; /* Debugging border */
+}
+
+.hero-image img {
+  /* Hero image styling */
+  width: 100%;
+  height: auto;
+  margin-left: 30px;
+  object-fit: cover;
+  border: 2px solid rgb(150, 20, 20); /* Debugging border */
+}

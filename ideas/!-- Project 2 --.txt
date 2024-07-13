@@ -1,0 +1,41 @@
+        <!-- Project 2 -->
+        <div class="project">
+            <div class="project-info">
+                <h3>Project 2 Title</h3>
+                <div class="technologies">
+                    <p class="made-with">Made with:</p>
+                    <div class="logos">
+                        <img src="htmll.png" alt="HTML Logo">
+                        <img src="htmll.png" alt="CSS Logo">
+                        <img src="htmll.png" alt="JavaScript Logo">
+                    </div>
+                </div>
+                <p>The project involves developing a portfolio website using HTML, CSS, and JavaScript. The goal is to create a visually appealing and classy design, showcasing projects effectively. Key features include responsive layout design, elegant typography, interactive elements, and smooth transitions for a polished user experience.</p>
+                <div class="project-buttons">
+                    <a href="https://github.com/yourusername/project2" target="_blank" class="btn demo-btn">Demo</a>
+                    <a href="https://github.com/yourusername/project2" target="_blank" class="btn github-btn">GitHub</a>
+                </div>
+            </div>
+            <img src="bgg.jpg" alt="Project 2 Image" class="project-image">
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project">
+            <div class="project-info">
+                <h3>Project 3 Title</h3>
+                <div class="technologies">
+                    <p class="made-with">Made with:</p>
+                    <div class="logos">
+                        <img src="html-logo.png" alt="HTML Logo">
+                        <img src="css-logo.png" alt="CSS Logo">
+                        <img src="js-logo.png" alt="JavaScript Logo">
+                    </div>
+                </div>
+                <p>The project involves developing a portfolio website using HTML, CSS, and JavaScript. The goal is to create a visually appealing and classy design, showcasing projects effectively. Key features include responsive layout design, elegant typography, interactive elements, and smooth transitions for a polished user experience.</p>
+                <div class="project-buttons">
+                    <a href="https://github.com/yourusername/project3" target="_blank" class="btn demo-btn">Demo</a>
+                    <a href="https://github.com/yourusername/project3" target="_blank" class="btn github-btn">GitHub</a>
+                </div>
+            </div>
+            <img src="bgg.jpg" alt="Project 3 Image" class="project-image">
+        </div>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Utsav Poudel's Portfolio - A Computer Science student at Washburn University showcasing projects, skills, and contact information.">
+    <title>Utsav Poudel - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Blackout+Sunrise&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chubby+Boys&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Notably+Absent+DEMO&display=swap">
+
+</head>
+<body>
+    <!-- Navigation Section -->
+    <header>
+        <nav id="navbar">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <a href="#home"><img width="200px" height="auto" src="white.png" alt="Logo"></a>
+                </div>
+                <ul id="menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="Resume.pdf" target="_blank">Resume</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Menu Icon -->
+    <div class="menuIcon">
+        <span class="icon icon-bars"></span>
+        <span class="icon icon-bars overlay"></span>
+    </div>
+
+    <!-- Home Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="writing-code">
+                <div class="line-writing-code">
+                    <h2>"Writing code that is</h2>
+                </div>
+                <div class="line-cleaner">
+                    <h2><span class="cleaner">Cleaner</span></h2>
+                </div>
+                <div class="line-than-my-room">
+                    <h2>than my room"</h2>
+                </div>
+                <div class="line-i-am">
+                    <p>I am</p>
+                </div>
+                <div class="line-name">
+                    <p><span class="name">UTSAV POUDEL</span></p>
+                </div>
+                <div class="line-subtitle">
+                    <p><span class="subtitle">STUDENT, DEVELOPER, EXPLORER</span></p>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="hero.png" alt="Utsav Poudel">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="text-container">
+                <h2>About Me</h2>
+                <p>Hey there! I'm Utsav Poudel, originally from Nepal. I kicked off my
+                    journey with Mathematics and Computer Science in high school. Now,
+                    I'm a junior at Washburn University, diving into Computer Science
+                    and Data Analytics. I've picked up a bunch of skills along the way,
+                    like HTML, CSS, JavaScript, Java, Python, CMD, MS Office, Adobe,
+                    and more. Thanks for stopping by!</p>
+            </div>
+            <div class="about-image">
+                <img src="bgg.jpg" alt="Utsav Poudel" />
+            </div>
+        </div>
+    </section>
+
+<!-- Portfolio Section -->
+<section id="projects" class="projects">
+    <h2>My Projects</h2>
+    <div class="container">
+        <!-- Project 1 -->
+        <div class="project">
+            <div class="project-info">
+                <h3>Plexi-gig model platform</h3>
+                <div class="technologies">
+                    <p class="made-with">Made with:</p>
+                    <div class="logos">
+                        <img src="htmll.png" alt="HTML Logo">
+                        <img src="css3.png" alt="CSS Logo">
+                        <img src="js.png" alt="JavaScript Logo">
+                    </div>
+                </div>
+                <p>Plexi is a gig model platform that connects Helpers and Help Needers, facilitating assistance with everyday tasks
+                    such as lawn mowing, cleaning, and moving. It features advanced security measures, including face recognition,
+                    emergency assistance, and background checks, ensuring a safe and trustworthy environment. With a user-friendly interface
+                    and efficient matching system, Plexi makes it easy for Help Needers to find reliable help and for Helpers to find rewarding
+                    gigs. Committed to supporting those in need and empowering Helpers, Plexi fosters a community of care and support.</p>
+                <div class="project-buttons">
+                    <a href="https://github.com/yourusername/project1" target="_blank" class="btn demo-btn">Demo</a>
+                </div>
+            </div>
+            <img src="bgg.jpg" alt="Project 1 Image" class="project-image">
+        </div>
+    </div>
+</section>
+
+
+<!-- Contact Section -->
+<section id="contact" class="contact">
+    <div class="container">
+        <h2>Contact Me</h2>
+        <form action="send_email.php" method="post" class="contact-form">
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+            <textarea id="message" name="message" placeholder="Your Message" rows="4" required></textarea>
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+        
+        <div class="social-links">
+            <a href="https://github.com/Utsavdotcom" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/utsavpoudel69" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://x.com/utsavey_69" target="_blank"><i class="fab fa-twitter"></i></a>
+        </div>
+    </div>
+</section>
+
+
+<!-- Footer Section -->
+<footer>
+    <div class="container">
+        <p>&copy; 2024 Utsav Poudel. All rights reserved.</p>
+    </div>
+</footer>
+
+
+    <!-- Back-to-Top Button -->
+    <div class="back-to-top">&#8679;</div>
+
+    <!-- Optional: Add JavaScript files or scripts here -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,872 @@
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #253439;
+}
+
+@font-face {
+    font-family: 'Danbury';
+    src: url('fonts/Danbury.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Notably Absent DEMO';
+    src: url('/fonts/Notably Absent DEMO.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'chubbyboys';
+    src: url('/fonts/chubbyboys.otf') format('opentype'); /* Adjust the path as per your actual folder structure */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Akira Expanded Demo';
+    src: url('/fonts/Akira%20Expanded%20Demo.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'UNDERRATED UltraBold';
+    src: url('/fonts/UNDERRATED.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Bigerside Expanded';
+    src: url('/fonts/Bigerside Expanded.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Header styles */
+header {
+    background-color: transparent;
+    color: #282525;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 25px;
+}
+
+nav .container {
+    display: flex;
+    width: 100%;
+    margin-left: auto;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #f39c12;
+}
+
+/* Navbar Styles */
+#navbar {
+    position: fixed;
+    background: transparent; /* Keeps the background transparent as per your preference */
+    color: rgb(13, 26, 38);
+    top: 0;
+    height: 60px;
+    line-height: 60px;
+    width: 100vw;
+    z-index: 10;
+    border: 2px solid rgb(255, 0, 0); /* Border for debugging, can be removed */
+}
+
+.nav-wrapper {
+    margin: auto;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    border: 2px solid rgb(0, 255, 68); /* Border for debugging, can be removed */
+}
+
+@media (max-width: 768px) {
+    .nav-wrapper {
+        width: 90%;
+    }
+}
+
+@media (max-width: 638px) {
+    .nav-wrapper {
+        width: 100%;
+    }
+}
+
+.logo {
+    float: left; /* Ensures the logo is aligned to the left */
+    margin-left: 5px;
+    display: flex;
+    font-size: 2em;
+    align-items: center;
+    height: 100px;
+    border: 2px solid rgb(132, 0, 255); /* Border for debugging, can be removed */
+}
+
+.logo img {
+    width: 170px;
+    height: auto;
+    margin: 10px;
+    align-items: center;
+    /* Adjusted margin to ensure proper alignment */
+    margin-left: 0; 
+    border: 2px solid rgb(255, 0, 0); /* Border for debugging, can be removed */
+}
+
+#navbar ul {
+    display: inline-block;
+    float: right; /* Ensures the navigation links are aligned to the right */
+    list-style: none;
+    margin-top: -2px;
+    text-align: right;
+    transition: transform 0.5s ease-out;
+    border: 2px solid rgb(255, 0, 0); /* Border for debugging, can be removed */
+}
+
+@media (max-width: 640px) {
+    #navbar ul {
+        display: none;
+    }
+}
+
+@media (orientation: landscape) {
+    #navbar ul {
+        display: inline-block;
+    }
+}
+
+#navbar li {
+    display: inline-block;
+}
+
+#navbar li a {
+    color: rgb(255, 255, 255);
+    display: block;
+    font-size: 0.7em;
+    height: 50px;
+    letter-spacing: 1px;
+    margin: 0 5px;
+    padding: 0 4px;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.5s ease;
+    border: 2px solid rgb(127, 10, 43); /* Border for debugging, can be removed */
+}
+
+#navbar li a:hover {
+    color: rgb(28, 121, 184);
+    transform: scale(1.3);
+    transition: all 0.3s ease;
+}
+
+/* Animated Bottom Line */
+#navbar li a:before, #navbar li a:after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 1px;
+    bottom: 5px;
+    background: rgb(13, 26, 38);
+}
+
+#navbar li a:before {
+    left: 0;
+    transition: 0.5s;
+}
+
+#navbar li a:after {
+    background: rgb(13, 26, 38);
+    right: 0;
+}
+
+#navbar li a:hover:before {
+    background: rgb(175, 34, 34);
+    width: 100%;
+    transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+#navbar li a:hover:after {
+    background: transparent;
+    width: 100%;
+    transition: width 0.5s ease;
+}
+
+/* Hero section styles */
+.hero {
+    /* Main hero section */
+    position: relative;
+    height: 100vh;
+    background-color: #253439; /* Dark shade of grey */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    overflow: hidden; /* Ensure content stays within bounds */
+    border: 2px solid red; /* Debugging border */
+}
+
+.container {
+    /* Container for text and image */
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border: 2px solid blue; /* Debugging border */
+}
+
+.text-container {
+    /* Container for text content */
+    z-index: 1;
+    width: 60%;
+    max-width: 100%;
+    padding-right: 5%;
+    border: 2px solid green; /* Debugging border */
+}
+
+.line-writing-code, 
+.line-cleaner, 
+.line-than-my-room {
+    /* Line container for each piece of text */
+    margin: -20px;
+    position: relative;
+    top: -100px;
+    border: 2px solid magenta; /* Debugging border */
+}
+
+.line-writing-code h2,
+.line-than-my-room h2 {
+    /* Headline text */
+    font-family: 'Yeseva One', sans-serif;
+    font-size: 3rem;
+    letter-spacing: 5px;
+    line-height: 1.2;
+    border: 6px solid rgb(0, 64, 255); /* Debugging border */
+}
+
+.line-than-my-room {
+    text-align: right;
+    margin-right: -30%;
+}
+
+.line-writing-code{
+    margin-left: -20%;
+}
+
+.line-cleaner {
+    margin-right: 10%;
+    text-align: right;
+}
+
+.line-cleaner .cleaner {
+    /* Highlighted "Cleaner" text */
+    font-family: 'chubbyboys', sans-serif;
+    letter-spacing: 5px;
+    font-size: 5rem;
+    line-height: 1.2;
+    color: #E74C3C; /* Red color for highlight */
+    border: 2px solid rgb(146, 146, 124); /* Debugging border */
+}
+
+.line-i-am p, .line-name, .line-subtitle {
+    /* Paragraph text */
+    font-size: 1.5rem;
+    border: 2px solid purple; /* Debugging border */
+    position: absolute;
+    bottom: 10px; /* Adjust as needed */
+    left: 5%; /* Adjust as needed */
+    width: 100%; /* Adjust width as needed */
+    padding: 10px; /* Adjust padding as needed */
+  }
+
+.line-i-am p {
+    margin-bottom: 12%;
+    font-family: Yeseva One, sans-serif !important; /* Example font family */
+    font-size: 30px IMP !important; /* Example font size */
+    color: #ffffff; /* Example text color */
+}
+
+.line-name {
+    bottom: 7%;
+    z-index: 0;
+}
+
+.line-name .name {
+    /* Name text */
+    font-family: 'Akira Expanded Demo', sans-serif;
+    letter-spacing: 15px;
+    font-size: 110px;
+    width:100%;
+    position: relative;
+    bottom: 8%;
+    border: 2px solid orange; /* Debugging border */
+}
+
+.line-subtitle {
+    margin-left: -10%;
+    text-align: center;
+    bottom: 9%;
+}
+
+.line-subtitle .subtitle {
+    /* Subtitle text */
+    color: #F1C40F; /* Yellow color for subtitle */
+    font-family: 'UNDERRATED UltraBold', sans-serif;
+    letter-spacing: 10px;
+    font-size: 1.5rem;
+    border: 2px solid pink; /* Debugging border */
+}
+
+.hero-image {
+    /* Container for hero image */
+    position: absolute;
+    bottom: -14%;
+    right: 5%;
+    width: 50%;
+    z-index: 1; /* Place the image behind the text */
+    border: 2px solid cyan; /* Debugging border */
+}
+
+.hero-image img {
+    /* Hero image styling */
+    width: 100%;
+    height: auto;
+    margin-left: 30px;
+    object-fit: cover;
+    border: 2px solid rgb(150, 20, 20); /* Debugging border */
+}
+
+/* Media Queries for responsiveness */
+
+/* Adjust hero text for smaller screens */
+@media (max-width: 1024px) {
+    .text-container {
+        width: 100%;
+        padding-right: 0;
+    }
+    .line-writing-code h2,
+    .line-than-my-room h2 {
+        font-size: 2rem;
+    }
+    .line-cleaner .cleaner {
+        font-size: 3rem;
+    }
+    .line-i-am p, .line-name, .line-subtitle {
+        font-size: 1.2rem;
+    }
+    .line-name .name {
+        font-size: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-image {
+        position: relative;
+        bottom: 0;
+        right: 0;
+        width: 80%;
+        margin: 20px auto;
+    }
+    .line-writing-code h2,
+    .line-than-my-room h2 {
+        font-size: 1.8rem;
+    }
+    .line-cleaner .cleaner {
+        font-size: 2.5rem;
+    }
+    .line-name .name {
+        font-size: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .line-writing-code h2,
+    .line-than-my-room h2 {
+        font-size: 1.5rem;
+    }
+    .line-cleaner .cleaner {
+        font-size: 2rem;
+    }
+    .line-name .name {
+        font-size: 40px;
+    }
+    .hero-image {
+        width: 100%;
+    }
+}
+
+/* About Section */
+.about {
+    background: #253439;
+    color: #fff;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    border: 2px solid #f39c12; /* Border for the entire About section */
+}
+
+.about .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    height: 80%;
+    border: 2px solid #3498db; /* Border for the container */
+}
+
+.about-image {
+    flex: 1;
+    max-width: 30%; /* Reduced the maximum width */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border: 2px solid #e74c3c; /* Border for the image container */
+}
+
+.about-image img {
+    width: 70%; /* Reduce the image size to make it fit within the smaller container */
+    height: 260px;
+    border-radius: 50%; /* Make the image round */
+    object-fit: cover;
+}
+
+
+.text-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    max-width: 60%;
+    margin-left: 8%;
+    padding-right: 20px;
+    border: 2px solid #2ecc71; /* Border for the text container */
+}
+
+.text-container h2 {
+    font-family: 'Blackout Sunrise', sans-serif;
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.about h2 {
+    font-family: 'Akira Expanded Demo';
+    letter-spacing: 5px;
+}
+
+.about p {
+    letter-spacing: 1px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-image {
+        margin-top: 20px;
+        max-width: 40%;
+    }
+
+    .text-container {
+        text-align: center;
+        padding-right: 0;
+    }
+}
+
+
+
+/* Portfolio Section Styles */
+#projects {
+    background-color: #253439;
+    padding: 100px 0;
+    text-align: center;
+    height: auto;
+    border: 2px solid red; /* Debugging border */
+    overflow: auto; /* Ensure it expands with its content */
+    position: relative; /* Needed for absolute positioning of the heading */
+}
+
+.projects h2 {
+    color: #fff;
+    font-size: 2.5em;
+    font-family: 'Akira Expanded Demo';
+    letter-spacing: 3px;
+    margin: 0; /* Remove any default margins */
+    margin-bottom: 30px;
+    border: 2px solid green; /* Debugging border */
+    position: absolute; /* Position absolutely within the #projects container */
+    top: 20px; /* Align it to the top of the section */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
+    width: auto; /* Ensure the width is auto */
+}
+
+
+.projects .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid blue; /* Debugging border */
+    width: 80%;
+    margin: 0 auto; /* Center the container */
+}
+
+.project {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(51, 54, 58);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Initial shadow properties */
+    margin-bottom: 5px;
+    padding: 20px;
+    width: 70%;
+    transform: scale(0.7); /* Match initial scale with JS code */
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out; /* Added box-shadow to transition */
+    border: 2px solid yellow; /* Debugging border */
+}
+
+.project.in-view {
+    transform: scale(1);
+}
+
+.project-info {
+    width: 60%;
+    text-align: left;
+    border: 2px solid purple; /* Debugging border */
+}
+
+.project-image {
+    width: 35%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid orange; /* Debugging border */
+}
+
+.project h3 {
+    font-family: 'UNDERRATED', sans-serif;
+    font-size: 1.8em;
+    letter-spacing: 1px;
+    color: #fff;
+    margin-bottom: 10px;
+    border: 2px solid pink; /* Debugging border */
+}
+
+.project .technologies {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    border: 2px solid cyan; /* Debugging border */
+}
+
+.project .technologies .made-with {
+    margin-right: 10px;
+    font-family: open sans, sans-serif;
+    letter-spacing: 1px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.project .technologies .logos img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.project p {
+    font-family: open sans, sans-serif;
+    letter-spacing: 1px;
+    font-size: 1em;
+    color: #fff;
+    margin-bottom: 20px;
+    border: 2px solid lime; /* Debugging border */
+}
+
+.project .project-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    border: 2px solid rgb(0, 0, 255); /* Debugging border */
+}
+
+.project .btn {
+    padding: 10px 20px;
+    font-size: 1em;
+    text-decoration: none;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-out;
+}
+
+.project .btn.demo-btn {
+    background-color: #5b5b5b;
+}
+
+.project .btn.demo-btn:hover {
+    background-color: #b9b5b5;
+}
+
+
+/* Animation for project cards */
+.project.in-view {
+    transform: scale(1);
+}
+
+/* Contact Section */
+.contact {
+    background: #253439;
+    padding: 80px 20px;
+    text-align: center;
+    color: white;
+    position: relative; /* Ensure the section is positioned */
+    min-height: 100vh; /* Ensure it takes the full viewport height */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the content horizontally */
+}
+
+/* Ensure the h2 is at the top center of the section */
+.contact h2 {
+    color: #fff;
+    font-size: 2.5em;
+    font-family: 'Akira Expanded Demo';
+    letter-spacing: 3px;
+    margin: 0; /* Remove any default margins */
+    margin-bottom: 30px;
+    position: relative; /* Position relatively within the contact section */
+}
+
+/* Ensure the container holds the form and social links in center */
+.contact .container {
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the content horizontally */
+}
+
+.contact-form {
+    width: 100%; /* Ensure the form takes full width within the max-width */
+    margin: 0 auto 40px auto; /* Center horizontally and add space below the form */
+    border: 2px solid green;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the content horizontally */
+}
+
+.contact-form label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: white;
+    width: 80%; /* Ensure the label takes 80% of the container width */
+}
+
+.contact-form input,
+.contact-form textarea {
+    display: block;
+    width: 80%; /* Ensure the input fields take 80% of the container width */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #873131;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.contact-form button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #685c49;
+}
+
+
+/* Social Links */
+.social-links {
+    display: flex;
+    justify-content: center; /* Center the social links horizontally */
+    gap: 10px; /* Space between the social links */
+}
+
+.social-links a {
+    color: white;
+    font-size: 24px; /* Adjust the size of the social media icons */
+    text-decoration: none;
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.social-links a:hover {
+    transform: scale(1.2); /* Scale up the icon on hover */
+}
+
+
+
+/* Footer */
+footer {
+    background-color: #191717;
+    color: #fff;
+    text-align: center;
+    padding: 10px 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+}
+
+footer .container {
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+}
+
+footer p {
+    margin: 0;
+}
+
+
+
+
+/* Back-to-Top Button Styles */
+.back-to-top {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    display: none; /* Initially hidden */
+    width: 40px;
+    height: 40px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1000;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.back-to-top:hover {
+    background-color: #555;
+}
+
+
+/* Mobile Menu Icon */
+.menuIcon {
+    cursor: pointer;
+    display: none;
+    position: fixed;
+    right: 15px;
+    top: 5px;
+    z-index: 99;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {
+    opacity: 0;
+}
+
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+}
+
+@media screen and (max-width: 640px) {
+    .menuIcon {
+        display: block;
+    }
+}
