@@ -491,6 +491,7 @@ nav ul li a:hover {
     height: 260px;
     border-radius: 50%; /* Make the image round */
     object-fit: cover;
+    transform: rotate(-90deg);
 }
 
 
