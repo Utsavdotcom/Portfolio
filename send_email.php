@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (mail($to, $subject, $body, $headers)) {
         echo "Message sent successfully!";
     } else {
-        echo "Oops! Something went wrong.";
+ echo "Oops! Something went wrong.";
     }
 }
 ?>

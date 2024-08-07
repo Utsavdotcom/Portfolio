@@ -324,8 +324,8 @@ nav ul li a:hover {
 
 .line-i-am p {
     margin-bottom: 12%;
-    font-family: Yeseva One, sans-serif !important; /* Example font family */
-    font-size: 30px IMP !important; /* Example font size */
+    font-family: Yeseva One, sans-serif; /* Example font family */
+    font-size: 30px; /* Example font size */
     color: #ffffff; /* Example text color */
 }
 
@@ -375,8 +375,6 @@ nav ul li a:hover {
     object-fit: cover;
 }
 
-/* Media Queries for responsiveness */
-
 /* Adjust hero text for smaller screens */
 @media (max-width: 1024px) {
     .text-container {
@@ -402,40 +400,69 @@ nav ul li a:hover {
     .hero {
         flex-direction: column;
         text-align: center;
+        padding: 15%;
     }
+
+    .container {
+        /* Remove border after debugging */
+        /* border: 2px solid red; */
+    }
+    
     .hero-image {
-        position: relative;
-        bottom: 0;
-        right: 0;
-        width: 80%;
-        margin: 20px auto;
+        display: none;
     }
+
     .line-writing-code h2,
     .line-than-my-room h2 {
         font-size: 1.8rem;
+        padding: 5%;
     }
+
     .line-cleaner .cleaner {
-        font-size: 2.5rem;
+        font-size: 3rem;
     }
+
     .line-name .name {
-        font-size: 60px;
+        font-size: 3.75rem; /* Equivalent to 60px */
+    }
+
+    .line-i-am {
+        /* Remove border after debugging */
+        /* border: 2px solid yellow; */
+        position: relative;
+        width: 100%; /* Make it full width for centering */
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px; /* Add some padding */
+        text-align: center;
+    }
+
+    .line-i-am p {
+        /* Remove border after debugging */
+        /* border: 3px solid red; */
+        margin: 0;
+    }
+
+    .line-name {
+        /* Remove border after debugging */
+        /* border: 2px solid rgb(145, 145, 165); */
+        margin: 20% auto; /* Center it horizontally */
+        line-height: 1.2;
+    }
+
+    .line-subtitle {
+        /* Remove border after debugging */
+        /* border: 2px solid purple; */
+        font-size: 1.2rem;
+        border: none;
+        margin: 0 auto -5%;
+        line-height: 1.5;
+        text-align: center;
     }
 }
 
-@media (max-width: 480px) {
-    .line-writing-code h2,
-    .line-than-my-room h2 {
-        font-size: 1.5rem;
-    }
-    .line-cleaner .cleaner {
-        font-size: 2rem;
-    }
-    .line-name .name {
-        font-size: 40px;
-    }
-    .hero-image {
-        width: 100%;
-    }
 }
 
 /* About Section */
