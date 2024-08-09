@@ -1,0 +1,593 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #253439;
+}
+
+@font-face {
+    font-family: 'Danbury';
+    src: url('fonts/Danbury.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Notably Absent DEMO';
+    src: url('fonts/Notably Absent DEMO.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'chubbyboys';
+    src: url('fonts/chubbyboys.otf') format('opentype'); /* Adjust the path as per your actual folder structure */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Akira Expanded Demo';
+    src: url('fonts/Akira%20Expanded%20Demo.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'UNDERRATED UltraBold';
+    src: url('fonts/UNDERRATED.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Bigerside Expanded';
+    src: url('/fonts/Bigerside Expanded.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+section {
+    height: auto;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/*Navigation section*/
+
+#navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: transparent;
+    padding: 10px 10px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+}
+
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between; /* Aligns children to the ends of the wrapper */
+    align-items: center; /* Centers items vertically */
+    width: 100%; /* Full width to fit within navbar */
+}
+
+.logo {
+    display: flex;
+    margin: 20px 0 0 -20px;
+    align-items: center;
+    height: 100%; /* Full height to fit within navbar */
+}
+
+#menu {
+    visibility: hidden; /* Hidden by default */
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute; /* Positioned absolutely relative to the navbar */
+    top: 60px; /* Adjust based on your navbar height */
+    right: 10px;
+    background-color: #5b5b5b; /* Background color for dropdown menu */
+    width: 40%; /* Full width to cover the navbar */
+    z-index: 1; /* Ensure it appears above other elements */
+    opacity: 0;
+    transform: scale(0) rotate(-270deg);
+    transform-origin: top right;
+    transition: transform 0.6s ease, opacity 0.6s ease, visibility 0.6s;
+}
+
+#menu.show {
+    visibility: visible; /* Show menu when toggled */
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+}
+
+#menu li {
+    text-align: center;
+}
+
+#menu li a {
+    /* Styling for dropdown menu items */
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+    text-decoration: none;
+    justify-content: center;
+    padding: 10px 10px;
+    margin: 0;
+    display: block;
+    position: relative;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.menu-icon {
+    display: block;
+    cursor: pointer;
+}
+
+.menu-icon span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.menu-icon.active span:nth-child(1) {
+    transform: rotate(45deg);
+    position: relative;
+    top: 8px;
+}
+
+.menu-icon.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-icon.active span:nth-child(3) {
+    transform: rotate(-45deg);
+    position: relative;
+    top: -8px;
+}
+
+
+
+/* Media Queries for larger screens */
+@media (min-width: 576px) {
+    #menu {
+        visibility: visible;
+        opacity: 1;
+        transform: none;
+        right: 0;
+        display: flex; /* Display menu horizontally on larger screens */
+        flex-direction: row;
+        position: static; /* Static positioning for larger screens */
+        background-color: transparent; /* Reset background color */
+        width: 100%; /* Auto width to fit content */
+        justify-content: flex-end;
+    }
+
+    #menu li {
+        border-bottom: none; /* Remove border on larger screens */
+    }
+
+    #menu li a {
+        padding: 10px 20px;
+    }
+
+    .menu-icon {
+        display: none; /* Hide hamburger menu on larger screens */
+    }
+
+    #menu li a {
+        text-transform: uppercase;
+        font-size: 12px;
+        color: white;
+        text-decoration: none;
+        padding: 15px 20px;
+        display: block;
+        position: relative; /* Needed for the bottom border animation */
+        transition: transform 0.3s ease; /* Smooth enlarge effect */
+    }
+    
+    #menu li a::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        left: 50%;
+        bottom: 0;
+        background-color: rgb(255, 0, 0);
+        transition: width 0.3s ease, left 0.3s ease;
+    }
+    
+    #menu li a:hover {
+        color: rgb(0, 141, 206);
+        transform: scale(1.1); /* Enlarge effect */
+    }
+    
+    #menu li a:hover::after {
+        width: 70%;
+        left: 15%;
+    }
+}
+
+/* Hero section styles */
+
+.hero {
+    margin-top: 60px;
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    padding: 20px;
+    width: 95%;
+    height: 95%;
+}
+
+.writing-code{
+    margin: 10px 0;
+}
+
+.line-writing-code {
+    transform: translate(-50px);
+}
+
+.line-than-my-room {
+    transform: translateX(80px);
+}
+
+.line-writing-code,
+.line-than-my-room {
+    font-family: 'Yeseva One', sans-serif;
+    font-size: 1.5rem;
+    margin: -25px;
+}
+
+.line-cleaner {
+    font-family: 'chubbyboys', sans-serif;
+    letter-spacing: 5px;
+    font-size: 3rem;
+    color: red;
+}
+
+.line-i-am {
+    color: white;
+    font-family: Yeseva One, sans-serif;
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.line-name {
+    color: white;
+    white-space: nowrap;
+    font-family: 'Akira Expanded Demo', sans-serif;
+    font-size: 2rem;
+    margin: -10px;
+}
+
+.line-subtitle {
+    font-family: 'UNDERRATED UltraBold', sans-serif;
+    color: grey;
+    font-size: 1rem;
+    margin: 10px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1px;
+    justify-items: center;
+}
+
+.line-subtitle span:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.line-subtitle span:nth-child(2) {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.line-subtitle span:nth-child(3) {
+    grid-column: 1 / 3;
+    grid-row: 2;
+    color: white;
+    background-color: grey;
+    transform: translateY(-15px);
+}
+
+.line-subtitle span {
+    background-color: white;
+    margin: 5px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    letter-spacing: 2px;
+}
+
+.hero-image{
+    height: 60%;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin-top: 20px;
+}
+
+.mobile-image{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.laptop-image {
+    display: none;
+}
+
+
+/*About Section*/
+
+.about {
+    padding: 10px;
+    text-align: center;
+}
+
+.about-title {
+    color: white;
+    letter-spacing: 2px;
+    font-family: 'Akira Expanded Demo', sans-serif;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.about-content {
+    font-family: 'Montserrat' , sans-serif;
+    letter-spacing: 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-image {
+    transform: rotate(-90deg);
+    width: 200px;
+    height: 200px;
+    border-radius: 50px;
+    margin-bottom: 20px; 
+}
+
+.about-description {
+    background-color: lightgray;
+    font-size: 16px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+  }
+
+
+/* General Styles */
+.projects {
+    padding: 20px;
+}
+
+.projects h2 {
+    color: white;
+    font-family: 'Akira Expanded Demo', sans-serif;
+    letter-spacing: 2px;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.project {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.project:hover {
+    transform: translateY(-10px);
+}
+
+.project img {
+    width: 40%;
+    height: auto;
+}
+
+.project-info {
+    font-size: 12px;
+    font-family: 'Montserrat' , sans-serif;
+    letter-spacing: 1px;
+    padding: 20px;
+    text-align: center;
+}
+
+.project-info h3 {
+    font-family: "Rubik Mono One", sans-serif;
+    font-size: 1.5rem;
+    line-height: 22px;
+    margin-bottom: 10px;
+}
+
+.made-with {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.logos img {
+    width: 40px;
+    margin: 5px;
+}
+
+.project-buttons .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    text-decoration: none;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+
+/*Contact Section*/
+
+/* General Styles */
+.contact {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.contact h2 {
+    font-family: 'Akira Expanded Demo', sans-serif;
+    letter-spacing: 2px;
+    white-space: nowrap;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #007BFF;
+}
+
+.contact-form button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Social Media Links */
+.social-links {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.social-links a {
+    color: #9e9e9e;
+    font-size: 200%;
+    margin: 0 10px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #007BFF;
+    transform: scale(1.2);
+}
+
+
+/* Footer Styles */
+footer {
+    background-color: #606060;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    padding: 5px 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-container {
+    position: relative;
+}
+
+footer p {
+    margin: 0;
+    color: white;
+}
+
+
+/* Back-to-Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.back-to-top:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+}
+
+
