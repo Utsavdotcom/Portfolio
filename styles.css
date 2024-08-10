@@ -773,7 +773,7 @@ html {
 }
 
 .contact-form button:hover {
-    background-color: #0056b3;
+    background-color: #5a9ce3;
 }
 
 /* Social Media Links */
@@ -794,6 +794,17 @@ html {
     color: #007BFF;
     transform: scale(1.2);
 }
+
+#thank-you-note {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f0f4f8;
+    border-left: 4px solid #4CAF50;
+    color: #333;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
 
 
 /* Footer Styles */

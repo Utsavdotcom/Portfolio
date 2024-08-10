@@ -136,11 +136,11 @@
 <section id="contact" class="contact">
     <div class="container">
         <h2>Contact Me</h2>
-        <form class="contact-form">
+        <form class="contact-form" onsubmit="SendMail(event)"> <!-- Added onsubmit to prevent default form submission -->
             <input type="text" id="name" name="name" placeholder="Your Full Name" required>
             <input type="email" id="email" name="email" placeholder="Your Email" required>
             <textarea id="message" name="message" placeholder="Your Message" rows="4" required></textarea>
-            <button type="submit" onclick="SendMail()" class="btn">Send Message</button>
+            <button type="submit" class="btn">Send Message</button>
         </form>
         
         <div class="social-links">
@@ -148,8 +148,13 @@
             <a href="https://linkedin.com/in/utsavpoudel69" target="_blank"><i class="fab fa-linkedin"></i></a>
             <a href="https://x.com/utsavey_69" target="_blank"><i class="fab fa-twitter"></i></a>
         </div>
+
+        <div id="thank-you-note" style="display: none;">
+            <p>Thank you for your message! I'll get back to you soon.</p>
+        </div>
     </div>
 </section>
+
 
 
 <!-- Footer Section -->
