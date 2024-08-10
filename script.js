@@ -27,7 +27,7 @@ function SendMail() {
     };
     emailjs.send("service_8g3hafg", "template_p6u6o3f", params).then(
       function() {
-        alert('Message sent successfully!' +);
+        alert('Message sent successfully!');
       },
       function(error) {
         alert('Failed to send message. Please try again later.');
