@@ -18,6 +18,24 @@ $(document).ready(function () {
     });
 });
 
+
+function SendMail() {
+    var params = {
+      from_name: document.getElementById("name").value,
+      email_id: document.getElementById("email").value,
+      message: document.getElementById("message").value
+    };
+    emailjs.send("service_8g3hafg", "template_p6u6o3f", params).then(
+      function() {
+        alert('Message sent successfully!' +);
+      },
+      function(error) {
+        alert('Failed to send message. Please try again later.');
+      }
+    );
+  }
+
+
 document.addEventListener("DOMContentLoaded", function() {
     const menuIcon = document.getElementById('menu-icon');
     const menu = document.getElementById('menu');

@@ -345,6 +345,9 @@ nav ul li a:hover {
     bottom: 8%;
 }
 
+.mobile-image {
+    display: none;
+}
 
 
 .line-subtitle {
@@ -362,7 +365,7 @@ nav ul li a:hover {
     position: absolute;
     bottom: -14vh;
     right: 5vw;
-    border: 2px solid red;
+    border: 2px solid rgb(31, 212, 215);
     width: 50%;
     z-index: 1; /* Place the image behind the text */
 }
@@ -471,7 +474,6 @@ nav ul li a:hover {
     }
 }
 
-}
 
 /* About Section */
 .about {

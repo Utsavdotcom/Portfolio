@@ -12,6 +12,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
+        <!-- EmailJS Script -->
+        <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function(){
+        emailjs.init({
+            publicKey: "qCbKmdn6fzLJqNphV",
+            });
+        })();
+    </script>
 </head>
 <body>
 <!-- Navigation Section -->
@@ -53,6 +64,9 @@
                 <h2 class="line-than-my-room">than my room"</h2>
             </div>
             <div class="hero-image">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" style="display: none;">
+                    <path d="M50,10 Q75,20 90,40 Q80,60 60,70 Q40,80 30,60 Q10,40 20,20 Q30,10 50,10 Z" id="ink-splash"/>
+                </svg>
                 <img src="hero.png" alt="Utsav Poudel" class="laptop-image">
                 <img src="IMG_5441.jpg" alt="Utsav Poudel" class="mobile-image">
             </div>
@@ -71,16 +85,23 @@
 <!-- About Section -->
 <section id="about" class="about">
     <div class="container">
-      <h2 class="about-title">About Me</h2>
       <div class="about-content">
-        <img src="about.jpg" alt="Utsav Poudel" class="about-image">
-        <p class="about-description">Hey there! I'm Utsav Poudel, originally from Nepal. I kicked off my journey
+        <div class="about-text">
+          <h2 class="about-title">About Me</h2>
+          <p class="about-description">
+            Hey there! I'm Utsav Poudel, originally from Nepal. I kicked off my journey
             with Mathematics and Computer Science in high school. Now, I'm a junior at Washburn University, diving
             into Computer Science and Data Analytics. I've picked up a bunch of skills along the way, like HTML,
-            CSS, JavaScript, Java, Python, CMD, MS Office, Adobe, and more. Thanks for stopping by!</p>
+            CSS, JavaScript, Java, Python, CMD, MS Office, Adobe, and more. Thanks for stopping by!
+          </p>
+        </div>
+        <div class="about-image-wrapper">
+          <img src="about.jpg" alt="Utsav Poudel" class="about-image">
+        </div>
       </div>
     </div>
   </section>
+  
 
 <!-- Portfolio Section -->
 <section id="projects" class="projects">
@@ -89,13 +110,11 @@
         <!-- Project 1 -->
         <div class="project">
             <div class="project-info">
+                <div class = "title-image">
                 <h3>Plexi-gig model platform</h3>
                 <img src="Plexi.png" alt="Project 1 Image" class="project-image">
-                <p>Plexi is a gig model platform that connects Helpers and Help Needers, facilitating assistance with everyday tasks
-                    such as lawn mowing, cleaning, and moving. It features advanced security measures, including face recognition,
-                    emergency assistance, and background checks, ensuring a safe and trustworthy environment. With a user-friendly interface
-                    and efficient matching system, Plexi makes it easy for Help Needers to find reliable help and for Helpers to find rewarding
-                    gigs. Committed to supporting those in need and empowering Helpers, Plexi fosters a community of care and support.</p>
+                </div>
+                <p>Plexi is a gig platform connecting Helpers with Help Needers for tasks like lawn mowing, cleaning, and moving. With advanced security measures, including face recognition and background checks, Plexi ensures a safe, trustworthy environment. Its user-friendly interface and efficient matching system simplify finding reliable help and rewarding gigs. Committed to fostering a supportive community, Plexi empowers Helpers and supports those in need.</p>
                     <div class="technologies">
                         <p class="made-with">Made with:</p>
                         <div class="logos">
@@ -105,7 +124,7 @@
                         </div>
                     </div>
                 <div class="project-buttons">
-                    <a href="https://github.com/yourusername/project1" target="_blank" class="btn demo-btn">Demo</a>
+                    <a href="https://utsavdotcom.github.io/plexi/" target="_blank" class="btn demo-btn">Demo</a>
                 </div>
             </div>
         </div>
@@ -117,11 +136,11 @@
 <section id="contact" class="contact">
     <div class="container">
         <h2>Contact Me</h2>
-        <form action="send_email.php" method="post" class="contact-form">
-            <input type="text" id="name" name="name" placeholder="Your Name" required>
+        <form class="contact-form">
+            <input type="text" id="name" name="name" placeholder="Your Full Name" required>
             <input type="email" id="email" name="email" placeholder="Your Email" required>
             <textarea id="message" name="message" placeholder="Your Message" rows="4" required></textarea>
-            <button type="submit" class="btn">Send Message</button>
+            <button type="submit" onclick="SendMail()" class="btn">Send Message</button>
         </form>
         
         <div class="social-links">
@@ -147,5 +166,17 @@
     <!-- Optional: Add JavaScript files or scripts here -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="script.js"></script>
+    <!-- EmailJS Script -->
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function(){
+        emailjs.init({
+            publicKey: "qCbKmdn6fzLJqNphV",
+            });
+        })();
+    </script>
+
 </body>
 </html>
