@@ -334,6 +334,7 @@ html {
     overflow: hidden;
     position: relative;
     margin-top: 20px;
+    border-radius: 20px;
 }
 
 .mobile-image{
@@ -343,6 +344,7 @@ html {
     position: absolute;
     top: 0;
     left: 0;
+    object-fit: contain;
 }
 
 .laptop-image {
@@ -717,7 +719,7 @@ html {
         transform: scale(0.95);
     }
     
-
+}
 /*Contact Section*/
 
 .contact { /* General Styles */
@@ -803,6 +805,13 @@ html {
     color: #333;
     font-family: Arial, sans-serif;
     font-size: 16px;
+}
+
+@media (min-width: 1024px) {
+    .contact {
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 
