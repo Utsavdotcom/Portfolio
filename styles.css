@@ -26,7 +26,7 @@ body {
 
 @font-face {
     font-family: 'chubbyboys';
-    src: url('fonts/chubbyboys.otf') format('opentype'); /* Adjust the path as per your actual folder structure */
+    src: url('fonts/chubbyboys.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
@@ -82,30 +82,30 @@ html {
 
 .nav-wrapper {
     display: flex;
-    justify-content: space-between; /* Aligns children to the ends of the wrapper */
-    align-items: center; /* Centers items vertically */
-    width: 100%; /* Full width to fit within navbar */
+    justify-content: space-between; 
+    align-items: center; 
+    width: 100%; 
 }
 
 .logo {
     display: flex;
     margin: 20px 0 0 -20px;
     align-items: center;
-    height: 100%; /* Full height to fit within navbar */
+    height: 100%; 
 }
 
 #menu {
-    visibility: hidden; /* Hidden by default */
+    visibility: hidden; 
     flex-direction: column;
     list-style: none;
     padding: 0;
     margin: 0;
-    position: absolute; /* Positioned absolutely relative to the navbar */
-    top: 60px; /* Adjust based on your navbar height */
+    position: absolute; 
+    top: 60px; 
     right: 10px;
-    background-color: #5b5b5b; /* Background color for dropdown menu */
-    width: 40%; /* Full width to cover the navbar */
-    z-index: 1; /* Ensure it appears above other elements */
+    background-color: #5b5b5b; 
+    width: 40%; 
+    z-index: 1; 
     opacity: 0;
     transform: scale(0) rotate(-270deg);
     transform-origin: top right;
@@ -113,7 +113,7 @@ html {
 }
 
 #menu.show {
-    visibility: visible; /* Show menu when toggled */
+    visibility: visible; 
     opacity: 1;
     transform: scale(1) rotate(0deg);
 }
@@ -175,16 +175,16 @@ html {
         opacity: 1;
         transform: none;
         right: 0;
-        display: flex; /* Display menu horizontally on larger screens */
+        display: flex; 
         flex-direction: row;
-        position: static; /* Static positioning for larger screens */
-        background-color: transparent; /* Reset background color */
-        width: 100%; /* Auto width to fit content */
+        position: static; 
+        background-color: transparent; 
+        width: 100%; 
         justify-content: flex-end;
     }
 
     #menu li {
-        border-bottom: none; /* Remove border on larger screens */
+        border-bottom: none; 
     }
 
     #menu li a {
@@ -192,7 +192,7 @@ html {
     }
 
     .menu-icon {
-        display: none; /* Hide hamburger menu on larger screens */
+        display: none; 
     }
 
     #menu li a {
@@ -202,8 +202,8 @@ html {
         text-decoration: none;
         padding: 15px 20px;
         display: block;
-        position: relative; /* Needed for the bottom border animation */
-        transition: transform 0.3s ease; /* Smooth enlarge effect */
+        position: relative;
+        transition: transform 0.3s ease; 
     }
     
     #menu li a::after {
@@ -514,8 +514,8 @@ html {
         display: flex;
         flex-direction: column;
         align-items: center;
-        background-color: #3d3b3b; /* Keep your original background color */
-        box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.1); /* Subtle box shadow */
+        background-color: #3d3b3b; 
+        box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.1);
         border-radius: 8px;
         padding: 20px;
     }
