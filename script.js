@@ -13,7 +13,7 @@ $(document).ready(function () {
 
     // Scroll to top when the button is clicked
     btn.click(function () {
-        $('html, body').animate({ scrollTop: 0 }, 100); // Adjusted duration for smoother scrolling
+        $('html, body').animate({ scrollTop: 0 }, 100);
         return false;
     });
 });
@@ -34,7 +34,7 @@ function SendMail(event) {
             thankYouNote.fadeIn();
             
             setTimeout(function() {
-                thankYouNote.fadeOut(500); // fade out over 500ms
+                thankYouNote.fadeOut(500);
             }, 5000);
         },
         function(error) {
