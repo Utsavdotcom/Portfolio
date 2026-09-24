@@ -1,184 +1,601 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Utsav Poudel's Portfolio - A Computer Science student at Washburn University showcasing projects, skills, and contact information.">
-    <title>Utsav Poudel - Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; connect-src https://api.web3forms.com; object-src 'none'; base-uri 'none'; form-action 'none'"
+    />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Utsav Poudel's projects and experience in software, data, and analysis. Explore Auctora, the Hospital Intelligence Platform, and a lithophane carousel."
+    />
+    <meta name="theme-color" content="#202b2d" />
+    <meta property="og:title" content="Utsavdotcom — Utsav Poudel" />
+    <meta
+      property="og:description"
+      content="Hello, I'm Utsav. Make yourself at home. Projects, experience, and things I build."
+    />
+    <meta property="og:type" content="website" />
+    <title>Utsavdotcom — Utsav Poudel</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <script src="assets/js/theme-init.js"></script>
+    <link rel="stylesheet" href="assets/css/portfolio.css" />
+    <script src="site-config.js?v=20260924-email" defer></script>
+    <script src="assets/js/app.js" defer></script>
+    <script src="assets/js/contact.js" defer></script>
+    <script src="assets/js/project-demos.js" defer></script>
+    <script src="assets/js/rotating-type.js" defer></script>
+    <script src="assets/js/particles.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#type-stage">Skip to content</a>
+    <main>
+      <div id="up2">
+        <nav class="nav" aria-label="Main navigation">
+          <a class="wordmark" href="#u2-home"
+            ><svg viewBox="80 170 350 102" role="img" aria-label="Utsavdotcom">
+              <image href="assets/images/logo.png" width="500" height="500" /></svg
+          ></a>
+          <div class="navlinks" id="primary-links">
+            <a href="#u2-exp">Experience</a><a href="#u2-work">Projects</a
+            ><a href="#about-new">About</a><a href="#contact-new">Contact</a
+            ><a href="assets/resume.pdf" target="_blank" rel="noopener">Resume ↗</a>
+          </div>
+          <div class="nav-tools">
+            <button
+              type="button"
+              id="page-field-toggle"
+              class="field-toggle"
+              aria-label="Enable magnetic field"
+              aria-pressed="false"
+            >
+              <span class="toggle-dot" aria-hidden="true"></span><span>Field off</span></button
+            ><button
+              type="button"
+              id="u2-theme"
+              class="theme"
+              aria-label="Switch light and dark theme"
+            >
+              ◐
+            </button>
+          </div>
+        </nav>
+        <div id="field-status" class="field-status" role="status"></div>
 
-        <!-- EmailJS Script -->
-        <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-    </script>
-    <script type="text/javascript">
-        (function(){
-        emailjs.init({
-            publicKey: "qCbKmdn6fzLJqNphV",
-            });
-        })();
-    </script>
-</head>
-<body>
-<!-- Navigation Section -->
-<header>
-    <nav id="navbar">
-        <div class="nav-wrapper">
-            <div class="logo">
-                <a href="#home"><img width="130px" height="auto" src="white.png" alt="Logo"></a>
+        <header class="hero" id="u2-home">
+          <div class="hello">
+            <div class="greeting-readable">Hello, I'm Utsav. Make yourself at home.</div>
+            <div aria-hidden="true">
+              <span id="greeting-first" class="type-line">Hello, I'm Utsav.</span
+              ><span id="greeting-second" class="type-sub">Make yourself at home.</span>
             </div>
-            <div class="menu-icon" id="menu-icon">
-                <span></span>
-                <span></span>
-                <span></span>
+            <button id="replay-welcome" class="replay-door">Replay entrance</button>
+          </div>
+
+          <div class="type-stage" id="type-stage" tabindex="-1" aria-label="Rotating typography">
+            <h1 class="type-sr">Utsav Poudel</h1>
+            <div class="type-row" id="type-line-one" aria-hidden="true">UTSAV</div>
+            <div class="type-row second" id="type-line-two" aria-hidden="true">POUDEL</div>
+          </div>
+
+          <div id="welcome-door" class="doorway" aria-hidden="true">
+            <div class="door-leaf door-left">
+              <div class="door-panel"></div>
+              <div class="door-name">Utsavdotcom</div>
+              <div class="door-handle"></div>
             </div>
-            <ul id="menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="ideas\Resume.pdf" target="_blank">Resume</a></li>
-            </ul>
+            <div class="door-leaf door-right">
+              <div class="door-panel"></div>
+              <div class="door-handle"></div>
+            </div>
+          </div>
+        </header>
+
+        <div class="hero-bottom">
+          <div class="links">
+            <a href="assets/resume.pdf" target="_blank" rel="noopener">View resume ↗</a
+            ><a href="#u2-work">Projects ↓</a>
+          </div>
         </div>
-    </nav>
-</header>
-
-
-    <!-- Menu Icon -->
-    <div class="menuIcon">
-        <span class="icon icon-bars"></span>
-        <span class="icon icon-bars overlay"></span>
-    </div>
-
-    <!-- Home Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="writing-code">
-                <h2 class="line-writing-code">"Writing code that is</h2>
-                <h2 class="line-cleaner">Cleaner</h2>
-                <h2 class="line-than-my-room">than my room"</h2>
-            </div>
-            <div class="hero-image">
-                <img src="hero.png" alt="Utsav Poudel" class="laptop-image">
-                <img src="IMG_5441.jpg" alt="Utsav Poudel" class="mobile-image">
+        <section class="section" id="u2-exp">
+          <div class="section-top"><h2>Professional experience</h2></div>
+          <article class="job">
+            <div>
+              <div class="employer">State of Kansas</div>
+              <div class="meta">Topeka, KS<br />May — Aug 2026</div>
             </div>
             <div>
-                <p class="line-i-am">I am</p>
-                <p class="line-name">UTSAV POUDEL</p>
-                <div class="line-subtitle">
-                    <span>DEVELOPER</span>
-                    <span>ENTHUSIAST</span>
-                    <span>STUDENT</span>
+              <h3>Data Intern</h3>
+              <div class="subtitle">Office of Information Technology Services</div>
+              <div class="deliverables">
+                <div class="deliverable">
+                  <strong>Data governance & workflows</strong>
+                  <p>
+                    Developed a Data Asset Documentation Toolkit and a semi-automated architecture
+                    approval and reporting framework.
+                  </p>
                 </div>
+                <div class="deliverable">
+                  <strong>Local LLM extraction prototype</strong>
+                  <p>
+                    Proposed the idea in an informal conversation, earned approval, and prototyped
+                    extraction from large text fields using Python and Ollama.
+                  </p>
+                </div>
+              </div>
+              <details>
+                <summary>Leadership responsibility</summary>
+                <p>
+                  Served as team lead, coordinating activities, communicating progress, and helping
+                  maintain on-time delivery.
+                </p>
+              </details>
+              <div class="job-tools">Python / Power Apps / Ollama / Data governance</div>
             </div>
-        </div>
-    </section>
+          </article>
+          <article class="job">
+            <div>
+              <div class="employer">Federal Home<br />Loan Bank</div>
+              <div class="meta">Topeka, KS<br />May 2025 — May 2026</div>
+            </div>
+            <div>
+              <h3>Data Management & Analytics Intern</h3>
+              <div class="subtitle">Metadata automation and quality monitoring</div>
+              <div class="deliverables">
+                <div class="deliverable">
+                  <strong>Automated metadata updates</strong>
+                  <p>
+                    Built Python automation for Microsoft Purview using REST APIs, Microsoft Graph,
+                    JWT authentication, and Excel integration.
+                  </p>
+                </div>
+                <div class="deliverable">
+                  <strong>95%+ metadata accuracy</strong>
+                  <p>
+                    Supported reliable metadata and built a Power BI dashboard to monitor quality
+                    and status across production datasets.
+                  </p>
+                </div>
+              </div>
+              <details>
+                <summary>Working across teams</summary>
+                <p>
+                  Collaborated with data engineers on data-quality issues and workflow improvements,
+                  using Azure DevOps Boards within an Agile environment.
+                </p>
+              </details>
+              <div class="job-tools">
+                Python / Microsoft Purview / REST APIs / Power BI / Azure DevOps
+              </div>
+            </div>
+          </article>
+        </section>
 
-<!-- About Section -->
-<section id="about" class="about">
-    <div class="container">
-      <div class="about-content">
-        <div class="about-text">
-          <h2 class="about-title">About Me</h2>
-          <p class="about-description">
-            Hey there! I'm Utsav Poudel, originally from Nepal. I kicked off my journey
-            with Mathematics and Computer Science in high school. Now, I'm a junior at Washburn University, diving
-            into Computer Science and Data Analytics. I've picked up a bunch of skills along the way, like HTML,
-            CSS, JavaScript, Java, Python, CMD, MS Office, Adobe, and more. Thanks for stopping by!
-          </p>
-        </div>
-        <div class="about-image-wrapper">
-          <img src="about.jpg" alt="Utsav Poudel" class="about-image">
-        </div>
+        <section class="section" id="u2-work">
+          <div class="section-top"><h2>Projects</h2></div>
+          <div class="project" id="u2-a">
+            <div>
+              <div class="demobox">
+                <div class="demo-head">
+                  <span class="auction-word">Auctora</span
+                  ><span class="state-dot" id="u2-auction-state">Auction live</span>
+                </div>
+                <div class="stage-tabs" aria-label="Auction state">
+                  <button data-stage="before" aria-pressed="false">Before opening</button
+                  ><button data-stage="live" aria-pressed="true">Live</button
+                  ><button data-stage="closed" aria-pressed="false">Closed</button>
+                </div>
+                <div class="bid-columns">
+                  <div>
+                    <div class="meta">Current highest bid</div>
+                    <div class="price" id="u2-price">$240</div>
+                  </div>
+                  <div class="bid-count">
+                    Illustrative lot<br />Study No. 04<br /><span id="u2-bids">3 bids</span>
+                  </div>
+                </div>
+                <form class="bid-form" id="u2-bidform">
+                  <input
+                    aria-label="Your illustrative bid in dollars"
+                    id="u2-amount"
+                    type="number"
+                    value="250"
+                    step="1"
+                    required
+                  /><button type="submit" class="primary">Place bid ↗</button>
+                </form>
+                <div class="feedback" id="u2-feedback" role="status">
+                  Try a higher bid. Then try one below the current offer.
+                </div>
+              </div>
+              <div class="project-foot">
+                Interactive explanation of bidding rules. Sample amounts; no real auction.
+              </div>
+            </div>
+            <div class="project-copy">
+              <span class="meta">Collaborative class project / Backend & database</span>
+              <h3>Auctora</h3>
+              <p class="quiet">
+                An art auction platform where I focused on the backend, database, and the details
+                that decide whether a bid should count.
+              </p>
+              <details>
+                <summary>What I thought through</summary>
+                <p>
+                  Auction opening and closing times, bidder eligibility, bids above the previous
+                  offer, and the bid scoreboard.
+                </p>
+              </details>
+              <details>
+                <summary>Database and implementation</summary>
+                <p>
+                  PostgreSQL / Supabase, row-level security, automated triggers, and integration
+                  with the React and Node.js application.
+                </p>
+              </details>
+              <div class="tags">React · Node.js · PostgreSQL · Supabase</div>
+              <div class="project-foot">Live demo temporarily unavailable.</div>
+            </div>
+          </div>
+          <div class="project" id="u2-h">
+            <div class="demobox workflow-demo">
+              <div class="demo-head">
+                <strong>HIP</strong><span class="meta">Shared care board</span>
+              </div>
+              <div class="demo-tabs" aria-label="Hospital role">
+                <button data-hip="ems" aria-pressed="true">EMS</button
+                ><button data-hip="charge" aria-pressed="false">Charge nurse</button
+                ><button data-hip="staff" aria-pressed="false">Care team</button>
+              </div>
+              <div id="hip-dashboard"></div>
+              <p id="hip-status" class="feedback" role="status">
+                Start with EMS: prepare a handoff and send it ahead.
+              </p>
+              <div class="project-foot">
+                Interactive concept · fictional information · local demo only
+              </div>
+            </div>
+            <div class="project-copy">
+              <span class="meta">Hospital Intelligence Platform</span>
+              <h3>Hospital Intelligence Platform</h3>
+              <p class="quiet">
+                EMS sends patient information and an ETA ahead of arrival. The charge nurse uses
+                that handoff to assign a bed, nurses, and equipment.
+              </p>
+              <p class="quiet">
+                Shared dashboards keep staff nurses up to date, let the charge nurse assign room
+                cleaning, and give doctors a view of what has happened so far.
+              </p>
+              <p class="quiet">
+                I'm developing this with two classmates using Python and PostgreSQL. The project is
+                ongoing; this demo illustrates the intended workflow.
+              </p>
+              <div class="tags">Python · PostgreSQL</div>
+            </div>
+          </div>
+          <div class="project" id="u2-p">
+            <div class="demobox plexi-demo">
+              <div class="demo-head">
+                <strong>Plexi</strong><span class="meta">A little help goes a long way</span>
+              </div>
+              <div id="plexi-dashboard"></div>
+              <p id="plexi-status" class="feedback" role="status"></p>
+              <div class="project-foot">Interactive concept · sample tasks · nothing is posted</div>
+            </div>
+            <div class="project-copy">
+              <span class="meta">Earlier work / Design & development</span>
+              <h3>Plexi</h3>
+              <p class="quiet">
+                A platform connecting people who need a task done with people who can help. I worked
+                on application interfaces and database-backed task-posting workflows.
+              </p>
+              <details>
+                <summary>The outcome</summary>
+                <p>
+                  $4,000 in combined funding through the Community Innovation Challenge and Student
+                  Business Accelerator Fund. The collaborative venture did not take off.
+                </p>
+              </details>
+              <div class="tags">HTML · CSS · JavaScript · SQL</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="u2-object">
+          <div class="section-top">
+            <h2>Lithophane carousel</h2>
+            <span class="meta">Electronics / 3D printing</span>
+          </div>
+          <div class="workbench">
+            <div>
+              <span class="meta">Physical project · In progress</span>
+              <h3 style="margin-top: 17px; font-size: 32px">Four images. One window.</h3>
+              <p class="quiet">
+                Four curved lithophanes rotate inside a cylindrical enclosure. A single window
+                reveals one image at a time.
+              </p>
+              <p class="quiet">
+                A square base houses the controls, with a 2.4-inch TFT on the front. I'm also
+                building a web app to control it.
+              </p>
+              <p class="meta">
+                Rotate the internal assembly.<br />Open the cutaway to see the mechanism.
+              </p>
+            </div>
+            <div class="object-wrap">
+              <div class="object-toolbar">
+                <span class="meta">Lithophane carousel</span
+                ><button id="u2-cutaway" aria-pressed="false">View inside</button>
+              </div>
+              <svg
+                class="device"
+                viewBox="0 0 390 360"
+                role="img"
+                aria-label="Concept model of a square base with front TFT screen, cylindrical enclosure and one lithophane window; cutaway shows four curved panels"
+              >
+                <defs>
+                  <linearGradient id="u2-cylinder">
+                    <stop stop-color="#717c77" />
+                    <stop offset=".32" stop-color="#c1c8bd" />
+                    <stop offset=".65" stop-color="#a4afa3" />
+                    <stop offset="1" stop-color="#66736d" />
+                  </linearGradient>
+                  <linearGradient id="u2-lit">
+                    <stop stop-color="#e1c99e" />
+                    <stop offset=".5" stop-color="#fff0c5" />
+                    <stop offset="1" stop-color="#ddc395" />
+                  </linearGradient>
+                  <filter id="u2-lithophane" color-interpolation-filters="sRGB">
+                    <feColorMatrix type="saturate" values="0" />
+                    <feComponentTransfer>
+                      <feFuncR type="table" tableValues="0.24 0.98" />
+                      <feFuncG type="table" tableValues="0.21 0.94" />
+                      <feFuncB type="table" tableValues="0.15 0.79" />
+                    </feComponentTransfer>
+                  </filter>
+                  <pattern
+                    id="u2-print-layers"
+                    width="2"
+                    height="1.3"
+                    patternUnits="userSpaceOnUse"
+                  >
+                    <path d="M0 0H2" stroke="#fff8dc" stroke-opacity=".16" stroke-width=".3" />
+                  </pattern>
+                  <linearGradient id="u2-panel-shade">
+                    <stop stop-color="#342b18" stop-opacity=".25" />
+                    <stop offset=".3" stop-color="#fff6d0" stop-opacity=".03" />
+                    <stop offset=".7" stop-color="#fff6d0" stop-opacity=".03" />
+                    <stop offset="1" stop-color="#342b18" stop-opacity=".25" />
+                  </linearGradient>
+                  <clipPath id="u2-window">
+                    <path d="M137 120 A101 26 0 0 0 253 120 L253 230 A101 26 0 0 1 137 230Z" />
+                  </clipPath>
+                </defs>
+                <ellipse cx="196" cy="324" rx="135" ry="13" fill="currentColor" opacity=".1" />
+                <path d="M64 261 L105 235 L326 235 L304 267Z" fill="#b1b8ad" stroke="#657068" />
+                <path d="M64 261 L304 267 L304 325 L64 316Z" fill="#8d998e" stroke="#657068" />
+                <path d="M304 267 L326 235 L326 294 L304 325Z" fill="#647369" stroke="#657068" />
+                <rect
+                  x="142"
+                  y="275"
+                  width="87"
+                  height="37"
+                  rx="3"
+                  fill="#263330"
+                  stroke="#566258"
+                />
+                <rect x="148" y="280" width="75" height="27" rx="1" fill="#152223" />
+                <text
+                  x="185"
+                  y="291"
+                  fill="#dce9be"
+                  text-anchor="middle"
+                  font-family="monospace"
+                  font-size="7"
+                >
+                  LITHOPHANE / READY
+                </text>
+                <text
+                  id="u2-tft"
+                  x="185"
+                  y="301"
+                  fill="#dce9be"
+                  text-anchor="middle"
+                  font-family="monospace"
+                  font-size="7"
+                >
+                  PHOTO 01 OF 04
+                </text>
+                <circle cx="273" cy="294" r="7" fill="#34473b" stroke="#647568" />
+                <g id="u2-shell">
+                  <path
+                    d="M94 80 C94 49 296 49 296 80 L296 233 C296 268 94 268 94 233Z"
+                    fill="url(#u2-cylinder)"
+                    stroke="#647168"
+                  />
+                  <ellipse cx="195" cy="80" rx="101" ry="26" fill="#c1c9bc" stroke="#69766a" />
+                  <ellipse cx="195" cy="80" rx="83" ry="18" fill="none" stroke="#8b9787" />
+                  <path
+                    d="M132 116 A101 26 0 0 0 258 116 L258 234 A101 26 0 0 1 132 234Z"
+                    fill="#3c483d"
+                  />
+                  <path
+                    d="M137 120 A101 26 0 0 0 253 120 L253 230 A101 26 0 0 1 137 230Z"
+                    fill="url(#u2-lit)"
+                  />
+                  <g clip-path="url(#u2-window)" id="u2-panel-image">
+                    <image
+                      id="u2-litho-photo"
+                      href="assets/images/portrait.webp"
+                      x="137"
+                      y="120"
+                      width="116"
+                      height="117"
+                      preserveAspectRatio="xMidYMid slice"
+                      opacity=".9"
+                      filter="url(#u2-lithophane)"
+                    />
+                    <rect x="137" y="120" width="116" height="117" fill="url(#u2-print-layers)" />
+                    <rect x="137" y="120" width="116" height="117" fill="url(#u2-panel-shade)" />
+                  </g>
+                  <path
+                    d="M137 120 A101 26 0 0 0 253 120 L253 230 A101 26 0 0 1 137 230Z"
+                    fill="none"
+                    stroke="#c6bd9f"
+                    stroke-width="1"
+                  />
+                </g>
+                <g id="u2-inside" visibility="hidden">
+                  <path
+                    d="M94 80 C94 49 296 49 296 80 L296 233 C296 268 94 268 94 233Z"
+                    fill="url(#u2-cylinder)"
+                    opacity=".13"
+                    stroke="#647168"
+                  />
+                  <ellipse cx="195" cy="202" rx="84" ry="38" fill="#657265" opacity=".3" />
+                  <path d="M195 202 L195 108" stroke="#657265" stroke-width="7" />
+                  <g transform="translate(195 155) scale(1 .6)">
+                    <g id="u2-rotor">
+                      <path
+                        d="M-63 -42 A76 76 0 0 1 42 -63 L42 -125 A76 76 0 0 0 -63 -104Z"
+                        fill="#e9d8af"
+                        stroke="#647168"
+                      />
+                      <path
+                        d="M42 -63 A76 76 0 0 1 63 42 L63 -20 A76 76 0 0 0 42 -125Z"
+                        fill="#d5c6a6"
+                        stroke="#647168"
+                      />
+                      <path
+                        d="M63 42 A76 76 0 0 1 -42 63 L-42 1 A76 76 0 0 0 63 -20Z"
+                        fill="#f0dfb5"
+                        stroke="#647168"
+                      />
+                      <path
+                        d="M-42 63 A76 76 0 0 1 -63 -42 L-63 -104 A76 76 0 0 0 -42 1Z"
+                        fill="#c5b798"
+                        stroke="#647168"
+                      />
+                    </g>
+                  </g>
+                  <text
+                    x="195"
+                    y="40"
+                    text-anchor="middle"
+                    fill="currentColor"
+                    font-family="monospace"
+                    font-size="10"
+                  >
+                    4 CURVED PANELS / ROTATING ASSEMBLY
+                  </text>
+                  <path d="M258 186 Q286 214 248 229" fill="none" stroke="currentColor" />
+                  <text x="265" y="235" fill="currentColor" font-size="15">↙</text>
+                </g>
+                <text
+                  x="185"
+                  y="344"
+                  text-anchor="middle"
+                  fill="currentColor"
+                  font-family="monospace"
+                  font-size="9"
+                >
+                  FRONT TFT · 2.4 INCH
+                </text>
+              </svg>
+              <div class="hardware-controls">
+                <button id="u2-prev" aria-label="Previous lithophane">← Previous</button
+                ><button id="u2-lamp" aria-pressed="true">Light on</button
+                ><button id="u2-next" aria-label="Next lithophane">Next →</button>
+              </div>
+              <div class="hardware-status" id="u2-hardware-status" role="status">
+                Panel 1 of 4 · Illustrative proportions and screen UI
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="about-new" class="about">
+          <img
+            src="assets/images/terrace.webp"
+            alt="Utsav on a wooden terrace overlooking greenery"
+            loading="lazy"
+            decoding="async"
+            width="750"
+            height="1000"
+          />
+          <div>
+            <h2>A little about me.</h2>
+            <p>
+              I'm Utsav, originally from Nepal and currently finishing my Computer and Information
+              Sciences degree at Washburn University.
+            </p>
+            <p>
+              I like figuring out how things work. Sometimes that means a database or a Python
+              script. Sometimes it means electronics, a DIY project, or something on the 3D printer.
+            </p>
+            <p>
+              I'm also into movies and shows, dry humor, and dad jokes. The quality of the jokes
+              varies.
+            </p>
+            <p class="study">Washburn University<br />Graduating December 11, 2026</p>
+          </div>
+        </section>
+        <section id="contact-new" class="contact-new">
+          <div>
+            <h2>Say hello.</h2>
+            <a href="mailto:poudelutsav65@gmail.com">poudelutsav65@gmail.com ↗</a
+            ><a href="https://linkedin.com/in/utsavpoudel69" target="_blank" rel="noreferrer"
+              >LinkedIn ↗</a
+            >
+          </div>
+          <noscript
+            ><p>
+              Please use the email link to get in touch. The form requires JavaScript.
+            </p></noscript
+          >
+          <form id="contact-form-new" method="post">
+            <div class="honeypot" aria-hidden="true">
+              <label
+                >Leave this empty<input
+                  type="checkbox"
+                  name="botcheck"
+                  tabindex="-1"
+                  autocomplete="off"
+              /></label>
+            </div>
+            <label
+              >Name<input
+                maxlength="120"
+                name="name"
+                autocomplete="name"
+                required
+                placeholder="Your name" /></label
+            ><label
+              >Email<input
+                maxlength="254"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+                placeholder="you@example.com" /></label
+            ><label
+              >Message<textarea
+                maxlength="5000"
+                name="message"
+                required
+                placeholder="What's on your mind?"
+              ></textarea></label
+            ><button type="submit" id="contact-send" disabled>Send message ↗</button>
+            <div id="contact-status" role="status"></div>
+          </form>
+        </section>
       </div>
-    </div>
-  </section>
-  
-
-<!-- Portfolio Section -->
-<section id="projects" class="projects">
-    <h2>My Projects</h2>
-    <div class="container">
-        <!-- Project 1 -->
-        <div class="project">
-            <div class="project-info">
-                <div class = "title-image">
-                <h3>Plexi-gig model platform</h3>
-                <img src="Plexi.png" alt="Project 1 Image" class="project-image">
-                </div>
-                <p>Plexi is a gig platform connecting Helpers with Help Needers for tasks like lawn mowing, cleaning, and moving. With advanced security measures, including face recognition and background checks, Plexi ensures a safe, trustworthy environment. Its user-friendly interface and efficient matching system simplify finding reliable help and rewarding gigs. Committed to fostering a supportive community, Plexi empowers Helpers and supports those in need.</p>
-                    <div class="technologies">
-                        <p class="made-with">Made with:</p>
-                        <div class="logos">
-                            <img src="htmll.png" alt="HTML Logo">
-                            <img src="css3.png" alt="CSS Logo">
-                            <img src="js.png" alt="JavaScript Logo">
-                        </div>
-                    </div>
-                <div class="project-buttons">
-                    <a href="https://utsavdotcom.github.io/plexi/" target="_blank" class="btn demo-btn">Demo</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<!-- Contact Section -->
-<section id="contact" class="contact">
-    <div class="container">
-        <h2>Contact Me</h2>
-        <form class="contact-form" onsubmit="SendMail(event)"> <!-- Added onsubmit to prevent default form submission -->
-            <input type="text" id="name" name="name" placeholder="Your Full Name" required>
-            <input type="email" id="email" name="email" placeholder="Your Email" required>
-            <textarea id="message" name="message" placeholder="Your Message" rows="4" required></textarea>
-            <button type="submit" class="btn">Send Message</button>
-        </form>
-        
-        <div class="social-links">
-            <a href="https://github.com/Utsavdotcom" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://linkedin.com/in/utsavpoudel69" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://x.com/utsavey_69" target="_blank"><i class="fab fa-twitter"></i></a>
-        </div>
-    </div>
-
-    <div id="thank-you-note" style="display: none;">
-        <p>Thank you for your message! I'll get back to you soon.</p>
-    </div>
-</section>
-
-
-
-<!-- Footer Section -->
-<footer>
-    <div>
-        <p>&copy; 2024 Utsav Poudel. All rights reserved.</p>
-    </div>
-</footer>
-
-
-    <!-- Back-to-Top Button -->
-    <div class="back-to-top">&#8679;</div>
-
-    <!-- Optional: Add JavaScript files or scripts here -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="script.js"></script>
-    <!-- EmailJS Script -->
-    <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-    </script>
-    <script type="text/javascript">
-        (function(){
-        emailjs.init({
-            publicKey: "qCbKmdn6fzLJqNphV",
-            });
-        })();
-    </script>
-
-</body>
+    </main>
+    <footer class="site-footer">
+      <span>Utsavdotcom</span><span>© <span id="copyright-year">2026</span> Utsav Poudel</span>
+    </footer>
+  </body>
 </html>

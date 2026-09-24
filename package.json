@@ -1,0 +1,22 @@
+{
+  "name": "utsavdotcom-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node scripts/serve.cjs",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "build": "node scripts/build.cjs",
+    "test": "playwright test",
+    "check": "npm run lint && npm run format:check && npm run build && npm test"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "eslint": "10.11.0",
+    "prettier": "3.9.9"
+  }
+}
