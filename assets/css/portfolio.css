@@ -241,6 +241,11 @@ h3 {
     display: none;
   }
 }
+@media (max-width: 900px) {
+  .plexi-demo .control-arrow {
+    display: none;
+  }
+}
 .hero-bottom {
   display: flex;
   justify-content: flex-end;
