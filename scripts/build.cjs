@@ -5,7 +5,7 @@ const output = path.join(root, 'dist');
 if (path.dirname(output) !== root) throw new Error('Invalid build destination');
 fs.rmSync(output, { recursive: true, force: true });
 fs.mkdirSync(output);
-for (const name of ['index.html', 'site-config.js', 'assets']) {
+for (const name of ['index.html', 'site-config.js', 'assets', 'legacy']) {
   fs.cpSync(path.join(root, name), path.join(output, name), { recursive: true });
 }
 fs.writeFileSync(path.join(output, '.nojekyll'), '');

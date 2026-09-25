@@ -42,7 +42,9 @@
           <div class="navlinks" id="primary-links">
             <a href="#u2-exp">Experience</a><a href="#u2-work">Projects</a
             ><a href="#about-new">About</a><a href="#contact-new">Contact</a
-            ><a href="assets/resume.pdf" target="_blank" rel="noopener">Resume ↗</a>
+            ><a href="assets/resume.pdf" target="_blank" rel="noopener"
+              >Resume <span class="control-arrow" aria-hidden="true">↗</span></a
+            >
           </div>
           <div class="nav-tools">
             <button
@@ -72,7 +74,6 @@
               <span id="greeting-first" class="type-line">Hello, I'm Utsav.</span
               ><span id="greeting-second" class="type-sub">Make yourself at home.</span>
             </div>
-            <button id="replay-welcome" class="replay-door">Replay entrance</button>
           </div>
 
           <div class="type-stage" id="type-stage" tabindex="-1" aria-label="Rotating typography">
@@ -96,8 +97,9 @@
 
         <div class="hero-bottom">
           <div class="links">
-            <a href="assets/resume.pdf" target="_blank" rel="noopener">View resume ↗</a
-            ><a href="#u2-work">Projects ↓</a>
+            <a href="assets/resume.pdf" target="_blank" rel="noopener"
+              >View resume <span class="control-arrow" aria-hidden="true">↗</span></a
+            ><a href="#u2-work">Projects <span class="control-arrow" aria-hidden="true">↓</span></a>
           </div>
         </div>
         <section class="section" id="u2-exp">
@@ -205,7 +207,9 @@
                     value="250"
                     step="1"
                     required
-                  /><button type="submit" class="primary">Place bid ↗</button>
+                  /><button type="submit" class="primary">
+                    Place bid <span class="control-arrow" aria-hidden="true">↗</span>
+                  </button>
                 </form>
                 <div class="feedback" id="u2-feedback" role="status">
                   Try a higher bid. Then try one below the current offer.
@@ -506,9 +510,12 @@
                 </text>
               </svg>
               <div class="hardware-controls">
-                <button id="u2-prev" aria-label="Previous lithophane">← Previous</button
+                <button id="u2-prev" aria-label="Previous lithophane">
+                  <span class="control-arrow" aria-hidden="true">←</span> Previous</button
                 ><button id="u2-lamp" aria-pressed="true">Light on</button
-                ><button id="u2-next" aria-label="Next lithophane">Next →</button>
+                ><button id="u2-next" aria-label="Next lithophane">
+                  Next <span class="control-arrow" aria-hidden="true">→</span>
+                </button>
               </div>
               <div class="hardware-status" id="u2-hardware-status" role="status">
                 Panel 1 of 4 · Illustrative proportions and screen UI
@@ -546,9 +553,10 @@
         <section id="contact-new" class="contact-new">
           <div>
             <h2>Say hello.</h2>
-            <a href="mailto:poudelutsav65@gmail.com">poudelutsav65@gmail.com ↗</a
+            <a href="mailto:poudelutsav65@gmail.com"
+              >poudelutsav65@gmail.com <span class="control-arrow" aria-hidden="true">↗</span></a
             ><a href="https://linkedin.com/in/utsavpoudel69" target="_blank" rel="noreferrer"
-              >LinkedIn ↗</a
+              >LinkedIn <span class="control-arrow" aria-hidden="true">↗</span></a
             >
           </div>
           <noscript
@@ -588,14 +596,17 @@
                 required
                 placeholder="What's on your mind?"
               ></textarea></label
-            ><button type="submit" id="contact-send" disabled>Send message ↗</button>
+            ><button type="submit" id="contact-send" disabled>
+              Send message <span class="control-arrow" aria-hidden="true">↗</span>
+            </button>
             <div id="contact-status" role="status"></div>
           </form>
         </section>
       </div>
     </main>
     <footer class="site-footer">
-      <span>Utsavdotcom</span><span>© <span id="copyright-year">2026</span> Utsav Poudel</span>
+      <a class="legacy-link" href="legacy/index.html">View legacy portfolio</a>
+      <span>© <span id="copyright-year">2026</span> Utsav Poudel</span>
     </footer>
   </body>
 </html>

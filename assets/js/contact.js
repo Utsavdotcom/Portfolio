@@ -65,7 +65,7 @@
       clearTimeout(timeout);
       sending = false;
       submit.disabled = false;
-      submit.textContent = 'Send message ↗';
+      submit.innerHTML = 'Send message <span class="control-arrow" aria-hidden="true">↗</span>';
       form.removeAttribute('aria-busy');
     }
   });

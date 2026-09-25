@@ -2,7 +2,7 @@
   'use strict';
   const stage = document.getElementById('type-stage');
   const rows = [document.getElementById('type-line-one'), document.getElementById('type-line-two')];
-  const replay = document.getElementById('replay-welcome');
+  const hero = document.getElementById('u2-home');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const items = [
     ['UTSAV', 'POUDEL'],
@@ -10,6 +10,13 @@
     ['ANALYSIS', ''],
     ['CURIOSITY', ''],
     ['PROBLEM', 'SOLVING'],
+  ];
+  const accents = [
+    [[3], [1]],
+    [[5, 6], []],
+    [[4], []],
+    [[4], []],
+    [[2], [1]],
   ];
   const INTERVAL_MS = 3500;
   const TRANSITION_MS = 1180;
@@ -23,57 +30,62 @@
     last = 0,
     visible = true,
     timer = 0,
-    ready = !replay.disabled;
+    ready = hero.dataset.entering !== 'true';
 
-  function characterWidth(character, row) {
-    const style = getComputedStyle(row);
-    measure.font = `${style.fontWeight} ${style.fontSize} ${style.fontFamily}`;
-    return character
-      ? Math.max(0, measure.measureText(character).width + parseFloat(style.letterSpacing || 0))
-      : 0;
+  function characterWidth(character, size) {
+    measure.font = `700 ${size}px Arial`;
+    return character ? Math.max(0, measure.measureText(character).width - size * 0.055) : 0;
   }
-  function makeSlot(character, row) {
+  function makeSlot(character, size, item, row, position) {
     const slot = document.createElement('span');
     slot.className = 'type-slot';
-    slot.style.width = `${characterWidth(character, row)}px`;
+    slot.style.width = `${characterWidth(character, size)}px`;
+    slot.style.setProperty('--delay', `${position * 28}ms`);
     const inner = document.createElement('span');
     inner.className = 'type-slot-inner';
     const letter = document.createElement('span');
-    letter.className = 'type-char current';
+    letter.className = 'type-char' + (accents[item][row].includes(position) ? ' red-letter' : '');
     letter.textContent = character;
     inner.append(letter);
     slot.append(inner);
     return slot;
   }
-  function sizeType() {
+  function typeSize(item) {
     const base = Math.min(stage.clientWidth * 0.24, 200);
     measure.font = `700 ${base}px Arial`;
     const spacing = -0.055 * base;
     const longest = Math.max(
-      ...items[index].map((text) =>
+      ...items[item].map((text) =>
         Array.from(text).reduce(
           (sum, character) => sum + measure.measureText(character).width + spacing,
           0,
         ),
       ),
     );
-    const size = base * Math.min(1, (stage.clientWidth - 12) / Math.max(1, longest));
-    rows.forEach((row) => {
-      row.style.fontSize = `${size}px`;
-      row.style.height = `${base * 1.03}px`;
-    });
+    return base * Math.min(1, (stage.clientWidth - 12) / Math.max(1, longest));
   }
-  function render() {
-    sizeType();
-    rows.forEach((row, i) =>
-      row.replaceChildren(
-        ...Array.from(items[index][i]).map((character) => makeSlot(character, row)),
+  function makeLayer(item, rowIndex) {
+    const size = typeSize(item);
+    const layer = document.createElement('span');
+    layer.className = 'type-layer';
+    layer.style.fontSize = `${size}px`;
+    layer.append(
+      ...Array.from(items[item][rowIndex]).map((character, position) =>
+        makeSlot(character, size, item, rowIndex, position),
       ),
     );
+    return layer;
+  }
+  function render() {
+    const base = Math.min(stage.clientWidth * 0.24, 200);
+    rows.forEach((row) => {
+      row.style.fontSize = `${base}px`;
+      row.style.height = `${base * 1.03}px`;
+    });
+    rows.forEach((row, i) => row.replaceChildren(makeLayer(index, i)));
   }
   function advance() {
     if (busy) return;
-    const oldIndex = index;
     index = (index + 1) % items.length;
     elapsed = 0;
     if (reduced.matches) {
@@ -81,25 +93,12 @@
       return;
     }
     busy = true;
-    sizeType();
+    // Separate layers keep outgoing letters at their original size and horizontal positions.
     rows.forEach((row, rowIndex) => {
-      const source = Array.from(items[oldIndex][rowIndex]);
-      const destination = Array.from(items[index][rowIndex]);
-      const count = Math.max(source.length, destination.length);
-      for (let i = 0; i < count; i++) {
-        let slot = row.children[i];
-        if (!slot) {
-          slot = makeSlot('', row);
-          row.append(slot);
-        }
-        const incoming = document.createElement('span');
-        incoming.className = 'type-char next';
-        incoming.textContent = destination[i] || '';
-        slot.querySelector('.type-slot-inner').append(incoming);
-        slot.style.setProperty('--delay', `${i * 28 + rowIndex * 55}ms`);
-        slot.style.width = `${characterWidth(destination[i] || '', row)}px`;
-        slot.classList.add('turning');
-      }
+      row.firstElementChild.classList.add('leaving');
+      const incoming = makeLayer(index, rowIndex);
+      incoming.classList.add('entering');
+      row.append(incoming);
     });
     timer = setTimeout(() => {
       busy = false;
@@ -127,7 +126,7 @@
     }
   }
   new MutationObserver(() => {
-    ready = !replay.disabled;
+    ready = hero.dataset.entering !== 'true';
     elapsed = 0;
     if (ready) {
       index = 0;
@@ -135,7 +134,7 @@
       clearTimeout(timer);
       render();
     }
-  }).observe(replay, { attributes: true, attributeFilter: ['disabled'] });
+  }).observe(hero, { attributes: true, attributeFilter: ['data-entering'] });
   new ResizeObserver(() => {
     if (!busy) render();
   }).observe(stage);

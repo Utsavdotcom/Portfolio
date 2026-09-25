@@ -229,14 +229,17 @@ h3 {
   overflow: hidden;
   clip-path: inset(50%);
 }
-.replay-door {
-  border: 0;
-  border-bottom: 1px solid var(--line);
-  background: transparent;
-  padding: 4px 0;
-  font-size: 11px;
-  color: var(--muted);
-  margin-top: 15px;
+.legacy-link {
+  border: 1px solid var(--line);
+  padding: 10px 14px;
+}
+.legacy-link:hover {
+  background: var(--surface);
+}
+@media (max-width: 750px) {
+  .control-arrow {
+    display: none;
+  }
 }
 .hero-bottom {
   display: flex;
@@ -261,6 +264,7 @@ h3 {
   container-type: inline-size;
 }
 .type-row {
+  position: relative;
   display: flex;
   align-items: flex-start;
   height: 1.03em;
@@ -271,7 +275,12 @@ h3 {
   letter-spacing: -0.055em;
   overflow: hidden;
   padding-right: 0.08em;
-  perspective: 900px;
+}
+.type-layer {
+  position: absolute;
+  inset: 0 auto auto 0;
+  display: flex;
+  height: 1.03em;
 }
 .type-row.second {
   margin-top: 0.06em;
@@ -286,7 +295,6 @@ h3 {
   perspective: 700px;
   overflow: visible;
   clip-path: inset(0 -20px 0 -20px);
-  transition: width 0.78s cubic-bezier(0.22, 0.8, 0.25, 1);
 }
 .type-slot-inner {
   position: relative;
@@ -306,18 +314,22 @@ h3 {
   transform-origin: 50% 100%;
   color: var(--fg);
 }
-.type-char.next {
-  transform: translateY(108%) rotateX(-70deg);
-}
 .type-row.second .type-char {
   color: transparent;
   -webkit-text-stroke: 1px var(--fg);
 }
-.type-slot.turning .type-char.current {
+.type-char.red-letter {
+  color: light-dark(#b72d22, #ff7566);
+}
+.type-row.second .type-char.red-letter {
+  color: transparent;
+  -webkit-text-stroke-color: light-dark(#b72d22, #ff7566);
+}
+.type-layer.leaving .type-char {
   animation: type-out 0.78s cubic-bezier(0.65, 0, 0.22, 1) both;
   animation-delay: var(--delay);
 }
-.type-slot.turning .type-char.next {
+.type-layer.entering .type-char {
   animation: type-in 0.78s cubic-bezier(0.65, 0, 0.22, 1) both;
   animation-delay: var(--delay);
 }

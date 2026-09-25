@@ -1,4 +1,92 @@
 const { test, expect } = require('@playwright/test');
+const { pathToFileURL } = require('node:url');
+const path = require('node:path');
+
+test('red accents persist and outgoing letters keep their geometry through every transition', async ({
+  page,
+}) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto('/');
+  await expect(page.locator('#u2-home')).toHaveAttribute('data-entering', 'false');
+  await page.clock.install();
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  const geometry = (selector) =>
+    page.locator(selector).evaluateAll((slots) =>
+      slots.map((slot) => ({
+        x: slot.getBoundingClientRect().x,
+        width: slot.getBoundingClientRect().width,
+        size: getComputedStyle(slot).fontSize,
+      })),
+    );
+  const expectedAccents = ['AO', 'EE', 'Y', 'O', 'OO'];
+  for (let i = 0; i < 5; i++) {
+    expect((await page.locator('.type-char.red-letter').allTextContents()).join('')).toBe(
+      expectedAccents[i],
+    );
+    const before = await geometry('.type-slot');
+    await page.clock.runFor(i === 0 ? 3600 : 2400);
+    await expect(page.locator('.type-layer.leaving')).toHaveCount(2);
+    const during = await geometry('.type-layer.leaving .type-slot');
+    expect(during).toEqual(before);
+    const animations = await page
+      .locator('.type-layer.leaving .type-char')
+      .evaluateAll((letters) => letters.map((letter) => getComputedStyle(letter).animationName));
+    expect(new Set(animations)).toEqual(new Set(['type-out']));
+    await page.clock.runFor(1100);
+    await expect(page.locator('.type-layer.leaving')).toHaveCount(0);
+  }
+  await expect(page.locator('#type-line-one')).toHaveText('UTSAV');
+  await expect(page.locator('#type-line-two')).toHaveText('POUDEL');
+});
+
+test('door and greeting animate on initial load and reload despite an old visit flag', async ({
+  page,
+}) => {
+  await page.addInitScript(() => {
+    sessionStorage.setItem('utsav-visited', 'true');
+    window.greetingFrames = [];
+    document.addEventListener('DOMContentLoaded', () => {
+      const greeting = document.getElementById('greeting-first');
+      new MutationObserver(() => window.greetingFrames.push(greeting.textContent)).observe(
+        greeting,
+        { childList: true },
+      );
+    });
+  });
+  for (let visit = 0; visit < 2; visit++) {
+    if (visit) await page.reload();
+    else await page.goto('/');
+    await expect(page.locator('#welcome-door')).toHaveClass(/is-opening/);
+    await expect
+      .poll(() =>
+        page.evaluate(() =>
+          window.greetingFrames.some(
+            (text) => text.length > 0 && text.length < "Hello, I'm Utsav.".length,
+          ),
+        ),
+      )
+      .toBe(true);
+    await expect(page.locator('#greeting-second')).toHaveText('Make yourself at home.', {
+      timeout: 5000,
+    });
+    await expect(page.locator('#u2-home')).toHaveAttribute('data-entering', 'false');
+  }
+});
+
+test('legacy and return links open HTML documents when launched directly from disk', async ({
+  page,
+}) => {
+  await page.goto(pathToFileURL(path.resolve(__dirname, '../dist/index.html')).href);
+  await expect(page.locator('#u2-home')).toHaveAttribute('data-entering', 'false', {
+    timeout: 6000,
+  });
+  await page.click('.legacy-link');
+  await expect(page).toHaveURL(/\/legacy\/index\.html$/);
+  await expect(page.locator('.archive-notice')).toBeVisible();
+  await page.click('.archive-notice a');
+  await expect(page).toHaveURL(/\/dist\/index\.html$/);
+  await expect(page.locator('#greeting-first')).toHaveText("Hello, I'm Utsav.", { timeout: 5000 });
+});
 
 test.beforeEach(async ({ page }) => {
   // Tests must never send real email, even if an assertion fails.
@@ -41,15 +129,62 @@ test('production assets, anchors, CSP, and project-relative deployment', async (
 });
 
 test('uniform automatic typography and reduced motion', async ({ page }) => {
-  await page.addInitScript(() => sessionStorage.setItem('utsav-visited', 'true'));
   await page.goto('/');
   await expect(page.locator('#type-line-one')).toHaveText('UTSAV');
-  await expect(page.locator('#type-line-one')).toHaveText('ENGINEERING', { timeout: 6500 });
+  await expect(page.locator('#type-line-one')).toHaveText('ENGINEERING', { timeout: 9000 });
   expect(await page.locator('#type-pause,#type-position,#type-next').count()).toBe(0);
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await expect(page.locator('#type-line-one')).toHaveText('UTSAV');
   await page.waitForTimeout(4000);
   await expect(page.locator('#type-line-one')).toHaveText('UTSAV');
+});
+
+test('entrance completes without replay controls and small screens hide arrows', async ({
+  page,
+}) => {
+  const errors = [];
+  page.on('pageerror', (error) => errors.push(error.message));
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/');
+  await expect(page.locator('#u2-home')).toHaveAttribute('data-entering', 'false', {
+    timeout: 6000,
+  });
+  await expect(page.locator('#greeting-second')).toHaveText('Make yourself at home.');
+  await expect(page.locator('#replay-welcome')).toHaveCount(0);
+  await expect(page.locator('#type-line-one')).toHaveText('ENGINEERING', { timeout: 6500 });
+  await page.click('[data-role="helper"]');
+  await expect(page.locator('[data-offer] .control-arrow')).toBeHidden();
+  for (const arrow of await page.locator('a .control-arrow, button .control-arrow').all())
+    await expect(arrow).toBeHidden();
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  await expect(page.locator('[data-offer] .control-arrow')).toBeVisible();
+  expect(errors).toEqual([]);
+});
+
+test('legacy page works under a project path and returns to the current site', async ({ page }) => {
+  const errors = [];
+  page.on('pageerror', (error) => errors.push(error.message));
+  page.on('response', (response) => {
+    if (response.url().startsWith('http://127.0.0.1:8766/') && response.status() >= 400)
+      errors.push(response.url());
+  });
+  await page.goto('/Portfolio/');
+  await page.click('.legacy-link');
+  await expect(page).toHaveURL(/\/Portfolio\/legacy\/index\.html$/);
+  await expect(page.locator('.archive-notice')).toContainText('Previous portfolio design');
+  await expect(page.locator('form')).toHaveCount(0);
+  await expect(page.locator('script:not([src])')).toHaveCount(0);
+  for (const image of await page.locator('img').all()) {
+    expect(await image.evaluate((el) => el.complete && el.naturalWidth > 0)).toBe(true);
+  }
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.click('#menu-icon');
+  await expect(page.locator('#menu-icon')).toHaveAttribute('aria-expanded', 'true');
+  await page.click('#menu a[href="#about"]');
+  await expect(page.locator('#menu-icon')).toHaveAttribute('aria-expanded', 'false');
+  await page.click('.archive-notice a');
+  await expect(page).toHaveURL(/\/Portfolio\/index\.html$/);
+  expect(errors).toEqual([]);
 });
 
 test('theme persists and particles are lazy and respect reduced motion', async ({ page }) => {

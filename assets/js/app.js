@@ -32,11 +32,11 @@
   themeLabel();
   document.getElementById('copyright-year').textContent = new Date().getFullYear();
 
-  // The entrance plays once per browser tab; it can always be replayed explicitly.
+  // Typography waits until the entrance finishes.
   const door = $('#welcome-door');
   const greeting = [$('#greeting-first'), $('#greeting-second')];
   const greetingCopy = ["Hello, I'm Utsav.", 'Make yourself at home.'];
-  const replay = $('#replay-welcome');
+  const hero = $('#u2-home');
   let entranceFrame = 0;
   let entranceStart = 0;
   function finishEntrance() {
@@ -45,7 +45,7 @@
     greeting.forEach((line, i) => {
       line.textContent = greetingCopy[i];
     });
-    replay.disabled = false;
+    hero.dataset.entering = 'false';
   }
   function animateEntrance(now) {
     const elapsed = now - entranceStart;
@@ -66,32 +66,22 @@
     greeting.forEach((line) => {
       line.textContent = '';
     });
-    replay.disabled = true;
+    hero.dataset.entering = 'true';
     door.className = 'doorway is-closed no-transition';
     void door.offsetWidth;
     door.classList.remove('no-transition');
     entranceStart = performance.now();
     entranceFrame = requestAnimationFrame(animateEntrance);
   }
-  replay.addEventListener('click', playEntrance);
-  let visited = false;
-  try {
-    visited = sessionStorage.getItem('utsav-visited') === 'true';
-  } catch {}
-  if (!visited) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (!entries[0].isIntersecting) return;
-        observer.disconnect();
-        try {
-          sessionStorage.setItem('utsav-visited', 'true');
-        } catch {}
-        playEntrance();
-      },
-      { threshold: 0.15 },
-    );
-    observer.observe($('#u2-home'));
-  }
+  const entranceObserver = new IntersectionObserver(
+    (entries) => {
+      if (!entries[0].isIntersecting) return;
+      entranceObserver.disconnect();
+      playEntrance();
+    },
+    { threshold: 0.15 },
+  );
+  entranceObserver.observe(hero);
   reduced.addEventListener('change', () => {
     if (reduced.matches) finishEntrance();
   });
